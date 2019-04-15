@@ -130,7 +130,7 @@ def create_apple(snake, display):
 
 
 def sleep_duration(snake):
-    ''' Sleep time decreases from 4.2 seconds, as snake grows longer '''
+    ''' Sleep time decreases as snake grows longer '''
     return 4.0 / float(len(snake))
 
 

@@ -1,3 +1,5 @@
+from time import sleep
+
 import adafruit_framebuf
 
 
@@ -8,7 +10,7 @@ def show_text(text, display):
         display.width, display.height, adafruit_framebuf.MVLSB)
 
     frame = 0 # start with frame 0
-    for i in range(len(text) * 9):
+    for i in range(len(text) * 12):
         fb.fill(0)
         fb.text(text, -i + display.width, 0, color=1)
 
@@ -30,8 +32,8 @@ def show_text(text, display):
         # now that the frame is filled, show it.
         display.frame(frame, show=True)
         frame = 0 if frame else 1
-        display.fill(0)
-        sleep(1)
+    display.fill(0)
+    sleep(1)
 
 
 if __name__ == '__main__':
