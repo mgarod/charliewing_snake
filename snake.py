@@ -143,6 +143,7 @@ def play_game(display):
     apple = create_apple(snake, display)
     apple.display(display)
     snake.display(display)
+    sleep(1)
     try:  # Play Snake
         while 1:
             if snake.advance_snake(apple, display):
