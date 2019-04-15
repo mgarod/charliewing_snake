@@ -25,3 +25,6 @@ if __name__ == '__main__':
 - Game speed progresses as snake grows (1.2 sec per move initially)
 - Two types of snake AI (Euclidean vs Manhattan distances)
 - Snake flashes on death, and clears the board.
+
+# TODO
+- Can give the snake more look-ahead (e.g. prune moves which have 0 subsequent moves)

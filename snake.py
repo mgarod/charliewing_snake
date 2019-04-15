@@ -131,7 +131,7 @@ def create_apple(snake, display):
 
 def sleep_duration(snake):
     ''' Sleep time decreases from 4.2 seconds, as snake grows longer '''
-    return 4.2 / float(len(snake))
+    return 4.0 / float(len(snake))
 
 
 class DeadSnakeException(Exception):
@@ -151,7 +151,7 @@ def play_game(display):
             sleep(sleep_duration(snake))
     except DeadSnakeException as dse:
         print(dse)
-        snake.flash(10, display)
+        snake.flash(8, display)
         display.fill(0)
         sleep(1)
     return
