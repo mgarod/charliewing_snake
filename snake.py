@@ -2,6 +2,8 @@ from math import sqrt
 from random import choice, randint
 from time import sleep
 
+BRIGHT = 200
+DIM = 50
 
 class Point:
     def __init__(self, x, y):
@@ -21,7 +23,7 @@ class Apple(Point):
         self.y = randint(0, h-1)
 
     def display(self, display):
-        display.pixel(self.x, self.y, 150)
+        display.pixel(self.x, self.y, BRIGHT)
 
 
 class Snake:
@@ -45,9 +47,9 @@ class Snake:
     def display(self, display):
         for i, point in enumerate(self._snake):
             if point == self.head:
-                display.pixel(point.x, point.y, 150)
+                display.pixel(point.x, point.y, BRIGHT)
             else:
-                display.pixel(point.x, point.y, 10)
+                display.pixel(point.x, point.y, DIM)
 
     def clear(self, display):
         for i, point in enumerate(self._snake):
@@ -62,18 +64,18 @@ class Snake:
 
     def move(self, point, display):
         # Dim the current head
-        display.pixel(self._head.x, self._head.y, 10)
+        display.pixel(self._head.x, self._head.y, DIM)
         # Add and brighten the new head
         self._snake.append(point)
-        display.pixel(point.x, point.y, 150)
+        display.pixel(point.x, point.y, BRIGHT)
         # Remove and dim the tail
         tail_bit = self._snake.pop(0)
         display.pixel(tail_bit.x, tail_bit.y, 0)
 
     def eat_move(self, apple, display):
-        # Dim the current head to 10
+        # Dim the current head to DIM
         head = self.head
-        display.pixel(head.x, head.y, 10)
+        display.pixel(head.x, head.y, DIM)
         # Add the apple to be the new head
         self._snake.append(apple)
         # Apple is already brightened, no need to do more
